@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Baby Shower Jacobo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --beige:#F5F1EB;
+  --beige-claro:#FBF9F6;
+  --cafe:#6B4E3D;
+  --verde:#7C8C6B;
+}
+
+/* Fondo con patrón suave de ositos */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:var(--cafe);
+  text-align:center;
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><text x='30' y='70' font-size='26' opacity='0.05'>🧸</text><text x='110' y='140' font-size='22' opacity='0.04'>🧸</text></svg>") repeat,
+    linear-gradient(180deg,#F5F1EB,#EFE9E2);
+}
+
+/* SOBRE */
+#envelope{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,#FBF9F6,#F5F1EB);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.envelope-card{
+  width:280px;
+  height:200px;
+  background:var(--verde);
+  border-radius:18px;
+  box-shadow:0 20px 45px rgba(0,0,0,.35);
+  cursor:pointer;
+  position:relative;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.06);}
+}
+
+.envelope-icon{
+  font-size:4em;
+  position:absolute;
+  top:36px;
+  width:100%;
+  text-align:center;
+}
+
+.envelope-text{
+  position:absolute;
+  bottom:26px;
+  width:100%;
+  text-align:center;
+  font-family:'Playfair Display',serif;
+  color:white;
+  font-size:1.2em;
+}
+
+/* HERO / PORTADA */
+.hero{
+  height:100vh;
+  background:
+    linear-gradient(rgba(107,78,61,.35), rgba(107,78,61,.35)),
+    url('portada.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  color:white;
+  background:rgba(255,255,255,.22);
+  padding:30px 36px;
+  border-radius:28px;
+}
+
+/* CONTENIDO */
+.section{
+  padding:30px 15px;
+  max-width:900px;
+  margin:auto;
+}
+
+.card{
+  background:var(--beige-claro);
+  margin:24px auto;
+  padding:26px;
+  border-radius:30px;
+  box-shadow:0 14px 35px rgba(0,0,0,.12);
+  max-width:460px;
+  animation:fadeUp .9s ease both;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;}
+}
+
+.quote{
+  font-family:'Dancing Script',cursive;
+  font-size:1.3em;
+}
+
+/* GALERÍA */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-top:14px;
+}
+.gallery img{
+  width:100%;
+  border-radius:18px;
+}
+
+/* CUENTA REGRESIVA */
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:12px;
+}
+.countdown div{
+  background:#EFE9E2;
+  padding:12px;
+  border-radius:14px;
+  min-width:62px;
+  box-shadow:inset 0 0 0 1px rgba(124,140,107,.25);
+}
+
+/* VIDEO (YouTube) */
+.video{
+  position:relative;
+  padding-top:56.25%;
+  border-radius:18px;
+  overflow:hidden;
+}
+.video iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* BOTÓN */
+.button{
+  background:var(--verde);
+  color:white;
+  padding:14px 30px;
+  border-radius:40px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:14px;
+}
+
+/* Corazones flotantes */
+.floating-heart{
+  position:fixed;
+  bottom:-30px;
+  font-size:1.6em;
+  opacity:.55;
+  animation:floatHeart 9s infinite ease-in;
+}
+@keyframes floatHeart{
+  from{transform:translateY(0);opacity:0;}
+  20%{opacity:.55;}
+  to{transform:translateY(-120vh);opacity:0;}
+}
+
+.footer{
+  margin:40px 10px;
+  font-size:.9em;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SOBRE -->
+
+<div id="envelope">
+  <div class="envelope-card" id="openBtn">
+    <div class="envelope-icon">🧸</div>
+    <div class="envelope-text">Abrir invitación 💚</div>
+  </div>
+</div>
+``
+
+<!-- Corazones -->
+<div class="floating-heart" style="left:12%">💚</div>
+<div class="floating-heart" style="left:48%">💚</div>
+<div class="floating-heart" style="left:82%">💚</div>
+
+<div class="hero">
+  <h1>Baby Shower de Jacobo 🧸</h1>
+</div>
+
+<div class="section">
+
+  <div class="card">
+    <strong>Estás invitado a celebrar la dulce espera 💚</strong>
+    <p class="quote">
+      “No sabemos nada de ser papás pero sí de fiestas y celebraciones,<br>
+      así que no faltes a la última fiesta siendo 2,<br>
+      en la próxima seremos 3”
+    </p>
+  </div>
+
+  <div class="card">
+    📅 <strong>7 de junio de 2026</strong><br>
+    ⏰ 3:00 PM
+    <div class="countdown">
+      <div><span id="d"></span>d</div>
+      <div><span id="h"></span>h</div>
+      <div><span id="m"></span>m</div>
+      <div><span id="s"></span>s</div>
+    </div>
+  </div>
+
+  <div class="card">
+    🎁 <strong>Lluvia de sobres</strong>
+    <p>Tu cariño y buenos deseos son el mejor regalo para Jacobo.</p>
+  </div>
+
+  <div class="card">
+    <strong>Nuestros momentos 💙</strong>
+    <div class="gallery">
+      <img src="foto1.jpg" alt="">
+      <img src="foto2.jpg" alt="">
+      <img src="foto3.jpg" alt="">
+      <img src="foto4.jpg" alt="">
+      <img src="foto5.jpg" alt="">
+    </div>
+  </div>
+
+  <div class="card">
+    <strong>📍 Ubicación</strong>
+    <div class="video">
+      <iframe
+        src="https://www.google.com/maps?q=Bogotá%20Calle%2020%2068d-30&output=embed"
+        loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div class="card">
+    <strong>🎶 Canción especial</strong>
+    <div id="yt-container" class="video" style="display:none;"></div>
+  </div>
+
+  <div class="card">
+    <strong>💌 Confirma tu asistencia</strong><br>
+    <a class="button" target="_blank"
+       href="https://docs.google.com/forms/d/e/1FAIpQLSdC9dPYFTbC52Ox0XhdAZivrkqzFwxXGfTDddiGjyG5woEqTg/viewform">
+      Confirmar asistencia 🧸
+    </a>
+  </div>
+
+  <div class="footer">
+    Con amor 💚 Familia Barreto Oidor
+  </div>
+</div>
+
+<script>
+// SOBRE + YOUTUBE (con interacción)
+function openInvite(){
+  document.getElementById('envelope').style.display='none';
+
+  // Crear iframe de YouTube al hacer clic (interacción)
+  const yt = document.getElementById('yt-container');
+  yt.innerHTML = `
+    <iframe
+      src="https://www.youtube.com/embed/7OmrkxIYPxg?autoplay=1&mute=0&rel=0"
+      allow="autoplay; encrypted-media"
+      allow(1000*60*60))%24);
+  m.textContent=Math.floor((diff/(1000*60))%60);
+  s.textContent=Math.floor((diff/1000)%60);
+},1000);
+</script>
+
+
+<div class="footer">
+  Con amor 💚 Familia Barreto Oidor
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const openBtn = document.getElementById("openBtn");
+  const envelope = document.getElementById("envelope");
+
+  if (openBtn && envelope) {
+    openBtn.addEventListener("click", function () {
+      envelope.style.display = "none";
+      console.log("Sobre abierto ✅");
+    });
+  }
+});
+</script>
+
+</body>
+</html>
