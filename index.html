@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Baby Shower Jacobo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FUENTES LINDAS -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --oliva:#7a8446;
+  --beige:#f5efe6;
+  --cafe:#6b4f3a;
+}
+
+body{
+  margin:0;
+  background:linear-gradient(var(--beige),#efe6d8);
+  font-family:'Baloo 2', cursive;
+  overflow-x:hidden;
+}
+
+/* ================= SOBRE ================= */
+#cover{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:linear-gradient(135deg,var(--oliva),var(--cafe));
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  z-index:10;
+  transition:transform 2s ease-in-out;
+}
+
+#cover.open{
+  transform:translateY(-120%);
+}
+
+.envelope{
+  width:300px;
+  height:200px;
+  background:#d6c1a3;
+  border-radius:10px;
+  position:relative;
+  cursor:pointer;
+  animation:pulse 2s infinite;
+}
+
+.envelope::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  clip-path:polygon(0 0,100% 0,50% 60%);
+  background:#c9b08c;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+  100%{transform:scale(1);}
+}
+
+/* ================= INVITACION ================= */
+#invitation{
+  opacity:0;
+  transition:opacity 2s;
+  padding:40px 20px 100px;
+  text-align:center;
+}
+
+#invitation.show{
+  opacity:1;
+}
+
+.title{
+  font-family:'Pacifico', cursive;
+  font-size:3rem;
+  color:var(--oliva);
+}
+
+.subtitle{
+  font-size:1.5rem;
+  color:var(--cafe);
+}
+
+.bears{
+  font-size:2.5rem;
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+  100%{transform:translateY(0);}
+}
+
+/* ================= COUNTDOWN ================= */
+#countdown{
+  font-size:1.4rem;
+  background:#fff;
+  padding:15px;
+  border-radius:20px;
+  margin:20px auto;
+  display:inline-block;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+/* ================= BOTONES ================= */
+button{
+  background:var(--oliva);
+  color:white;
+  border:none;
+  padding:15px 25px;
+  border-radius:30px;
+  font-size:1rem;
+  cursor:pointer;
+  margin:10px;
+  transition:.3s;
+}
+
+button:hover{
+  background:var(--cafe);
+  transform:scale(1.1);
+}
+
+/* ================= MAPA ================= */
+iframe{
+  width:100%;
+  max-width:500px;
+  height:300px;
+  border-radius:20px;
+  margin:20px auto;
+  border:0;
+}
+
+/* ================= LLUVIA DE SOBRES ================= */
+.confetti{
+  position:fixed;
+  top:-10px;
+  animation:fall linear forwards;
+  font-size:24px;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="music" src="musica.mp3" loop></audio>
+
+<!-- SOBRE -->
+<div id="cover">
+  <div class="envelope" onclick="openInvitation()"></div>
+  <p style="margin-top:20px;font-size:1.3rem;">🐻 Haz clic para abrir 🐻</p>
+</div>
+
+<!-- INVITACION -->
+<div id="invitation">
+  <div class="bears">🐻🧸🐻🧸🐻</div>
+  <h1 class="title">Baby Shower Jacobo</h1>
+  <p class="subtitle">Con amor te invitamos a celebrar</p>
+
+  <div class="bears">🌿🧸🌿🧸🌿</div>
+
+  <!-- COUNTDOWN -->
+  <div id="countdown"></div>
+
+  <!-- MAPA -->
+  <h2 style="color:var(--cafe)">Lugar del evento</h2>
+  <!-- 🔴 REEMPLAZA EL LINK POR TU DIRECCION REAL -->
+  <iframe 
+    src="https://www.google.com/maps?q=Bogotá&output=embed">
+  </iframe>
+
+  <!-- CONFIRMAR -->
+  <!-- 🔴 REEMPLAZA EL LINK POR WHATSAPP / FORMULARIO -->
+  <button onclick="window.open('https://wa.me/573000000000','_blank')">
+    ✅ Confirmar Asistencia
+  </button>
+
+  <p style="margin-top:40px;font-size:1.2rem;color:var(--cafe)">
+    Atentamente,<br>
+    <strong>Familia Barreto Oidor</strong> 💚
+  </p>
+
+  <div class="bears">🐻🧸🐻🧸🐻</div>
+</div>
+
+<script>
+function openInvitation(){
+  document.getElementById("cover").classList.add("open");
+  document.getElementById("invitation").classList.add("show");
+  document.getElementById("music").play();
+  startConfetti();
+}
+
+/* ================= COUNTDOWN ================= */
+const eventDate = new Date("June 7, 2026 15:00:00").getTime();
+setInterval(()=>{
+  const now = new Date().getTime();
+  const diff = eventDate - now;
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+  const m = Math.floor((diff%(1000*60*60))/(1000*60));
+  const s = Math.floor((diff%(1000*60))/1000);
+
+  document.getElementById("countdown").innerHTML =
+    `⏳ Faltan ${d} días ${h}h ${m}m ${s}s`;
+},1000);
+
+/* ================= LLUVIA DE SOBRES ================= */
+function startConfetti(){
+  for(let i=0;i<60;i++){
+    const conf = document.createElement("div");
+    conf.className = "confetti";
+    conf.innerText = "✉️";
+    conf.style.left = Math.random()*100+"vw";
+    conf.style.animationDuration = (Math.random()*3+3)+"s";
+    conf.style.opacity = Math.random();
+    document.body.appendChild(conf);
+
+    setTimeout(()=>conf.remove(),6000);
+  }
+}
+</script>
+
+</body>
+</html>
